@@ -30,11 +30,7 @@ new class extends Component {
     <ul class="dropdown-menu dropdown-user animated fadeIn">
         <div class="dropdown-user-scroll scrollbar-outer">
             <li>
-                <a class="dropdown-item" href="profile">My Profile</a>
-                <a class="dropdown-item" href="#">My Balance</a>
-                <a class="dropdown-item" href="#">Inbox</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Account Setting</a>
+                <a class="dropdown-item" href="{{ route('profile') }}">My Profile</a>
                 <div class="dropdown-divider"></div>
                 <a wire:click="logout" class="dropdown-item" href="#">Logout</a>
             </li>

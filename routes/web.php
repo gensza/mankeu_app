@@ -14,7 +14,6 @@ use App\Livewire\Counter;
 |
 */
 
-Route::view('/', 'dashboard');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -23,6 +22,10 @@ Route::view('dashboard', 'dashboard')
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::view('/', 'dashboard');
+});
 
 Route::get('/counter', Counter::class);
 
