@@ -1,3 +1,6 @@
+@php
+    $isTransactionActive = request()->routeIs('transactions.*');
+@endphp
 <div class="sidebar" data-background-color="dark">
     <div class="sidebar-logo">
         <!-- Logo Header -->
@@ -28,7 +31,7 @@
                     </span>
                     <h4 class="text-section">Menus</h4>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                     <a href="{{ route('dashboard') }}" class="collapsed" aria-expanded="false">
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>
@@ -40,21 +43,21 @@
                         <p>Accounts</p>
                     </a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item {{ $isTransactionActive ? 'active' : '' }}">
                     <a data-bs-toggle="collapse" href="#base">
                         <i class="fas fa-layer-group"></i>
                         <p>Transactions</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse show" id="base">
+                    <div class="collapse {{ $isTransactionActive ? 'show' : '' }}" id="base">
                         <ul class="nav nav-collapse">
-                            <li class="active">
-                                <a href="{{ route('dashboard') }}">
+                            <li class="{{ request()->routeIs('transactions.income') ? 'active' : '' }}">
+                                <a href="{{ route('transactions.income') }}">
                                     <span class="sub-item">Income</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="{{ route('dashboard') }}">
+                            <li class="{{ request()->routeIs('transactions.expense') ? 'active' : '' }}">
+                                <a href="{{ route('transactions.expense') }}">
                                     <span class="sub-item">Expense</span>
                                 </a>
                             </li>

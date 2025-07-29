@@ -15,16 +15,18 @@ use App\Livewire\Counter;
 */
 
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+// Route::view('dashboard', 'dashboard')
+//     ->middleware(['auth', 'verified'])
+//     ->name('dashboard');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::view('/', 'dashboard');
+    Route::get('/', \App\Livewire\Dashboards\Index::class)->name('dashboard');
+    Route::get('/transactions/income', \App\Livewire\Transactions\Income::class)->name('transactions.income');
+    Route::get('/transactions/expense', \App\Livewire\Transactions\Expense::class)->name('transactions.expense');
 });
 
 Route::get('/counter', Counter::class);

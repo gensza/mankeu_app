@@ -31,7 +31,7 @@
                     "simple-line-icons",
                 ],
                 urls: [
-                    "assets/css/fonts.min.css",
+                    "{{ asset('assets/css/fonts.min.css') }}",
                 ],
             },
             active: function() {
@@ -87,7 +87,7 @@
     <script src="{{ asset('assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
 
     <!-- Chart JS -->
-    <script src="assets/js/plugin/chart.js/chart.min.js"></script>
+    <script src="{{ asset('assets/js/plugin/chart.js/chart.min.js') }}"></script>
 
     <!-- jQuery Sparkline -->
     <script src="{{ asset('assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js') }}"></script>
@@ -113,7 +113,8 @@
 
     <!-- Kaiadmin DEMO methods, don't include it in your project! -->
     <script src="{{ asset('assets/js/setting-demo.js') }}"></script>
-    <script src="{{ asset('assets/js/demo.js') }}"></script>
+    @stack('scripts')
+    {{-- <script src="{{ asset('assets/js/demo.js') }}"></script> --}}
     {{-- <script>
         $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
             type: "line",
