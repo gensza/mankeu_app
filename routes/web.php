@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', \App\Livewire\Dashboards\Index::class)->name('dashboard');
     Route::get('/transactions/income', \App\Livewire\Transactions\Income::class)->name('transactions.income');
     Route::get('/transactions/expense', \App\Livewire\Transactions\Expense::class)->name('transactions.expense');
+    Route::get('/accounts', \App\Livewire\AccountManager\Index::class)->name('accounts.index');
 });
 
 Route::get('/counter', Counter::class);
