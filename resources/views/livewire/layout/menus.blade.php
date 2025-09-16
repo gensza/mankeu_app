@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('dashboard') }}" class="collapsed" aria-expanded="false">
+                    <a href="{{ route('accounts') }}" class="collapsed" aria-expanded="false">
                         <i class="fas fa-table"></i>
                         <p>Accounts</p>
                     </a>
@@ -65,7 +65,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('dashboard') }}" class="collapsed" aria-expanded="false">
+                    <a href="{{ route('reports') }}" class="collapsed" aria-expanded="false">
                         <i class="fas fa-file"></i>
                         <p>Reports</p>
                     </a>
