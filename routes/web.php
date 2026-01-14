@@ -28,7 +28,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/transactions/income', \App\Livewire\Transactions\Income::class)->name('transactions.income');
     Route::get('/transactions/expense', \App\Livewire\Transactions\Expense::class)->name('transactions.expense');
     Route::get('/accounts', \App\Livewire\AccountManager\Index::class)->name('accounts');
-    Route::get('/reports', \App\Livewire\Reports::class)->name('reports');
+    Route::get('/reports/balance-sheet', \App\Livewire\Reports\Reports::class)->name('reports.balance-sheet');
+    Route::get('/reports/profit-loss', \App\Livewire\Reports\ProfitLoss::class)->name('reports.profit-loss');
 });
 
 Route::get('/counter', Counter::class);

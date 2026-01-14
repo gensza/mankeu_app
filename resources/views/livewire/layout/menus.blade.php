@@ -1,5 +1,6 @@
 @php
     $isTransactionActive = request()->routeIs('transactions.*');
+    $isReportActive = request()->routeIs('reports.*');
 @endphp
 <div class="sidebar" data-background-color="dark">
     <div class="sidebar-logo">
@@ -64,11 +65,26 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('reports') }}" class="collapsed" aria-expanded="false">
-                        <i class="fas fa-file"></i>
+                <li class="nav-item {{ $isReportActive ? 'active' : '' }}">
+                    <a data-bs-toggle="collapse" href="#reports">
+                        <i class="fas fa-layer-group"></i>
                         <p>Reports</p>
+                        <span class="caret"></span>
                     </a>
+                    <div class="collapse {{ $isReportActive ? 'show' : '' }}" id="reports">
+                        <ul class="nav nav-collapse">
+                            <li class="{{ request()->routeIs('reports.profit-loss') ? 'active' : '' }}">
+                                <a href="{{ route('reports.profit-loss') }}">
+                                    <span class="sub-item">Profit & Loss</span>
+                                </a>
+                            </li>
+                            <li class="{{ request()->routeIs('reports.balance-sheet') ? 'active' : '' }}">
+                                <a href="{{ route('reports.balance-sheet') }}">
+                                    <span class="sub-item">Balance Sheet</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('dashboard') }}" class="collapsed" aria-expanded="false">

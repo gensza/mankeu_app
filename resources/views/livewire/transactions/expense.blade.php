@@ -1,6 +1,6 @@
 <div>
     <div class="card p-4 col-xl-6 col-lg-8 col-md-10 col-sm-12">
-        <h5 class="mb-3">Record Income Transaction</h5>
+        <h5 class="mb-3">Record Expense Transaction</h5>
         @if (session()->has('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif

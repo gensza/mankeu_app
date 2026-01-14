@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Reports;
 
 use Carbon\Carbon;
 use Livewire\Component;
@@ -38,6 +38,6 @@ class Reports extends Component
 
     public function render()
     {
-        return view('livewire.reports');
+        return view('livewire.reports.reports');
     }
 }

@@ -4,9 +4,17 @@ namespace App\Livewire\Dashboards;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class Index extends Component
 {
+    public $startDate;
+
+    public function mount()
+    {
+        $this->startDate = Carbon::now()->startOfDay()->format('Y-m-d');
+    }
+
     public function render()
     {
         $datas['count_accounts'] = DB::table('accounts')->count();
@@ -32,6 +40,13 @@ class Index extends Component
             ->groupBy('month')
             ->orderBy('month', 'asc')
             ->get();
+
+        $datas['totalIncomeDaily'] = DB::table('journal_entry_lines')
+            ->join('accounts', 'journal_entry_lines.account_id', '=', 'accounts.id')
+            ->join('journal_entries', 'journal_entry_lines.journal_entry_id', '=', 'journal_entries.id')
+            ->where('journal_entries.date', $this->startDate)
+            ->where('accounts.type', 'revenue')
+            ->sum('journal_entry_lines.credit');
 
         $datas['labels_grafik'] = $monthlyIncome->pluck('month');
         $datas['data_grafik'] = $monthlyIncome->pluck('total_income');

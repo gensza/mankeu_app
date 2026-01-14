@@ -1,7 +1,7 @@
 <div>
     <div class="card">
         <div class="card-header">
-            <h4>Financial Report</h4>
+            <h4>Balance Sheet</h4>
         </div>
         <div class="card-body">
             <form wire:submit.prevent="generate" class="row g-3 mb-3">
