@@ -50,9 +50,19 @@
 
     <!-- Scripts -->
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+
+    <style>
+        .all-page {
+            background: linear-gradient(135deg,
+                    #f4f8ff 0%,
+                    #dbeafe 30%,
+                    #93c5fd 65%,
+                    #1e3a8a 100%);
+        }
+    </style>
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased all-page">
     <div class="wrapper">
 
         <!-- Sidebar -->
