@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/accounts', \App\Livewire\AccountManager\Index::class)->name('accounts');
     Route::get('/reports/balance-sheet', \App\Livewire\Reports\Reports::class)->name('reports.balance-sheet');
     Route::get('/reports/profit-loss', \App\Livewire\Reports\ProfitLoss::class)->name('reports.profit-loss');
+    Route::get('/users', \App\Livewire\Users\Index::class)->name('users');
 });
 
 Route::get('/counter', Counter::class);

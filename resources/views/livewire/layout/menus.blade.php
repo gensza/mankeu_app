@@ -1,6 +1,6 @@
 @php
-    $isTransactionActive = request()->routeIs('transactions.*');
-    $isReportActive = request()->routeIs('reports.*');
+$isTransactionActive = request()->routeIs('transactions.*');
+$isReportActive = request()->routeIs('reports.*');
 @endphp
 <div class="sidebar" data-background-color="dark">
     <div class="sidebar-logo">
@@ -87,7 +87,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('dashboard') }}" class="collapsed" aria-expanded="false">
+                    <a href="{{ route('users') }}" class="collapsed" aria-expanded="false">
                         <i class="fas fa-users"></i>
                         <p>Users</p>
                     </a>
